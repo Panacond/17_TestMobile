@@ -1,3 +1,5 @@
+import driver.AndroidDriverSingleton;
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -6,6 +8,7 @@ import org.testng.Assert;
 import pageObject.FirstDataPage;
 import pageObject.ResultPage;
 import pageObject.SecondDataPage;
+import pageObject.StartAppPage;
 
 public class MyStep {
     @Given("run hello world")
@@ -15,19 +18,25 @@ public class MyStep {
 
     @Then("print hello")
     public String printHello() {
-//        WebDriverSingleton.quitDriver();
         return "241423";
 
+    }
+
+    @After
+    public void tearDown(){
+        AndroidDriverSingleton.quitDriver();
     }
 
     private final FirstDataPage firstDataPage;
     private final SecondDataPage secondDataPage;
     private final ResultPage resultPage;
+    private final StartAppPage startAppPage;
 
     public MyStep(){
         firstDataPage = new FirstDataPage();
         secondDataPage = new SecondDataPage();
         resultPage = new ResultPage();
+        startAppPage = new StartAppPage();
     }
 
     @Given("^User input load '(.*)'$")
@@ -75,17 +84,27 @@ public class MyStep {
     @Then("^User get utilization factor '(.*)'$")
     public void userGetUtilizationFactorResult(String result) {
         Assert.assertTrue(resultPage.isCorrectFactor(result));
-//        WebDriverSingleton.quitDriver();
+//TODO        WebDriverSingleton.quitDriver();
     }
 
     @Then("User get {string}")
     public void userGetPermissible_payload(String permissiblePayload) {
         Assert.assertTrue(resultPage.isCorrectFactor(permissiblePayload));
-//        WebDriverSingleton.quitDriver();
+//TODO        WebDriverSingleton.quitDriver();
     }
 
     @Given("open app")
     public void openApp() {
-
+        startAppPage
+                .clickGotoListApp()
+                .clickViewAll20App()
+                .clickButtonSearchApp()
+                .inputFieldSearchApp("Search")
+                .clickResultSearch()
+                .clickOpenApp()
+                .setInputFieldApp("panacond.github")
+                .clickButtonSearch()
+                .clickStartApp()
+                .clickSectionCalculations();
     }
 }

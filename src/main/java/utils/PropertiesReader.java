@@ -26,4 +26,24 @@ public class PropertiesReader {
     public String getUrl(){
         return property.getProperty("URL");
     }
+
+    public String getUrlServer(){
+        return property.getProperty("URL_SERVER");
+    }
+
+    public String getPlatformName(){
+        return property.getProperty("PLATFORM_NAME_CAPABILITY");
+    }
+
+    public String getUdId(){
+        return property.getProperty("UDID_CAPABILITY");
+    }
+
+    public String getPackage(){
+        return property.getProperty("APP_PACKAGE_CAPABILITY");
+    }
+
+    public String getActivity(){
+        return property.getProperty("APP_ACTIVITY_CAPABILITY");
+    }
 }

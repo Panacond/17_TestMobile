@@ -4,7 +4,6 @@ import driver.AndroidDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class SecondDataPage extends BasePageObject{
@@ -15,11 +14,12 @@ public class SecondDataPage extends BasePageObject{
     @FindBy(css = "#numberbox-b2")
     private WebElement sectionWidth;
 
-    @FindBy(css = "[id^=passage] > a")
+//    @FindBy(css = "[id^=passage] > a")
+    @FindBy(xpath = "//android.view.View[@content-desc='Расчет']/android.widget.TextView")
     private WebElement buttonCalculation;
 
     public SecondDataPage setSectionHeight(String height){
-//        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         sectionHeight.clear();
         sectionHeight.sendKeys(height);
         return this;

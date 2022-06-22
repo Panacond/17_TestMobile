@@ -4,7 +4,6 @@ import driver.AndroidDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class FirstDataPage extends BasePageObject {
@@ -18,11 +17,12 @@ public class FirstDataPage extends BasePageObject {
     @FindBy(css = "#numberbox-l1")
     private WebElement fieldLength;
 
-    @FindBy(css = "#passage-start > a:nth-child(11)")
+//    @FindBy(css = "#passage-start > a:nth-child(11)")
+    @FindBy(xpath = "//android.view.View[@content-desc='Деревянная балка']/android.widget.TextView")
     private WebElement buttonWoodBeam;
 
     public FirstDataPage setLoad(String load){
-//        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         fieldLoad.clear();
         fieldLoad.sendKeys(load);
         return this;
