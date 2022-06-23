@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.concurrent.TimeUnit;
 
-public class StartAppPage extends BasePageObject{
+public class StartAppPage extends BasePageObject {
 
     @FindBy(xpath = "//android.widget.TextView[@content-desc='Chrome']")
     private WebElement goToListApp;
@@ -26,36 +26,36 @@ public class StartAppPage extends BasePageObject{
     @FindBy(xpath = "//android.view.View[@content-desc=\"Расчет\"]")
     private WebElement sectionCalculations;
 
-    public StartAppPage clickApp(){
+    public StartAppPage clickApp() {
         AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         goToListApp.click();
         return this;
     }
 
-    public StartAppPage clickFieldInput(){
+    public StartAppPage clickFieldInput() {
         AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         fieldInput.click();
         return this;
     }
 
-    public StartAppPage setUrlBar(String text ){
+    public StartAppPage setUrlBar(String text) {
         urlBar.sendKeys(text);
         return this;
     }
 
-    public StartAppPage clickFieldClick(){
+    public StartAppPage clickFieldClick() {
         AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         fieldClick.click();
         return this;
     }
 
-    public StartAppPage clickAppStart(){
+    public StartAppPage clickAppStart() {
         AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         appStart.click();
         return this;
     }
 
-    public StartAppPage clickSectionCalculations(){
+    public StartAppPage clickSectionCalculations() {
         AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         sectionCalculations.click();
         return this;

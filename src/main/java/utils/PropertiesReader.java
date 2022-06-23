@@ -11,43 +11,43 @@ public class PropertiesReader {
     Properties property = new Properties();
     final static String PATH = "src/main/resources/config.properties";
 
-    public PropertiesReader(){
+    public PropertiesReader() {
         FileInputStream fis;
         try {
             fis = new FileInputStream(PATH);
             property.load(fis);
             fis.close();
             logger.info("Read config.properties");
-        } catch(IOException e){
+        } catch (IOException e) {
             logger.info("ERROR: Properties file is not exist!");
         }
     }
 
-    public String getUrl(){
+    public String getUrl() {
         return property.getProperty("URL");
     }
 
-    public String getUrlServer(){
+    public String getUrlServer() {
         return property.getProperty("URL_SERVER");
     }
 
-    public String getPlatformName(){
+    public String getPlatformName() {
         return property.getProperty("PLATFORM_NAME_CAPABILITY");
     }
 
-    public String getUdId(){
+    public String getUdId() {
         return property.getProperty("UDID_CAPABILITY");
     }
 
-    public String getPackage(){
+    public String getPackage() {
         return property.getProperty("APP_PACKAGE_CAPABILITY");
     }
 
-    public String getActivity(){
+    public String getActivity() {
         return property.getProperty("APP_ACTIVITY_CAPABILITY");
     }
 
-    public String getDeviceName(){
+    public String getDeviceName() {
         return property.getProperty("DEVICE_NAME_CAPABILITY");
     }
 }

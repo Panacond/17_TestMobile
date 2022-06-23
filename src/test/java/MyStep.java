@@ -18,12 +18,11 @@ public class MyStep {
 
     @Then("print hello")
     public String printHello() {
-        return "241423";
-
+        return "hello";
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         AndroidDriverSingleton.quitDriver();
     }
 
@@ -32,7 +31,7 @@ public class MyStep {
     private final ResultPage resultPage;
     private final StartAppPage startAppPage;
 
-    public MyStep(){
+    public MyStep() {
         firstDataPage = new FirstDataPage();
         secondDataPage = new SecondDataPage();
         resultPage = new ResultPage();
@@ -85,13 +84,11 @@ public class MyStep {
     @Then("^User get utilization factor '(.*)'$")
     public void userGetUtilizationFactorResult(String result) {
         Assert.assertTrue(resultPage.isCorrectFactor(result));
-//TODO        WebDriverSingleton.quitDriver();
     }
 
     @Then("User get {string}")
     public void userGetPermissible_payload(String permissiblePayload) {
         Assert.assertTrue(resultPage.isCorrectFactor(permissiblePayload));
-//TODO        WebDriverSingleton.quitDriver();
     }
 
     @Given("open app")

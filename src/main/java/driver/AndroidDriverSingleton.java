@@ -1,10 +1,8 @@
 package driver;
+
 import capabilitiesFactory.CapabilitiesFactory;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -15,13 +13,15 @@ public class AndroidDriverSingleton {
     private AndroidDriverSingleton() {
     }
 
-    public static AndroidDriver getDriver(){
-        if(driver == null){
+    public static AndroidDriver getDriver() {
+        if (driver == null) {
             driver = new AndroidDriver<>(CapabilitiesFactory.getAppiumServerURL(), CapabilitiesFactory.getCapabilities());
-                    driver.manage().timeouts().implicitlyWait(30, SECONDS);
+            driver.manage().timeouts().implicitlyWait(30, SECONDS);
         }
         return driver;
     }
 
-    public static void quitDriver(){driver.quit();}
+    public static void quitDriver() {
+        driver.quit();
+    }
 }
