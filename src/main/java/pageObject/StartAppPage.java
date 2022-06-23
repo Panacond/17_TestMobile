@@ -1,86 +1,62 @@
 package pageObject;
 
+import driver.AndroidDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.concurrent.TimeUnit;
+
 public class StartAppPage extends BasePageObject{
 
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]")
+    @FindBy(xpath = "//android.widget.TextView[@content-desc='Chrome']")
     private WebElement goToListApp;
 
-    @FindBy(id = "com.android.settings:id/header_details")
-    private WebElement viewAll20App;
+    @FindBy(xpath = "//android.support.v7.widget.RecyclerView[@content-desc=\"New tab\"]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
+    private WebElement fieldInput;
 
-    @FindBy(id = "com.android.settings:id/search_app_list_menu")
-    private WebElement buttonSearchApp;
+    @FindBy(id = "com.android.chrome:id/url_bar")
+    private WebElement urlBar;
 
-    @FindBy(id = "android:id/search_src_text")
-    private WebElement fieldSearchApp;
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.widget.ListView/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
+    private WebElement fieldClick;
 
-    @FindBy(xpath = "//android.widget.LinearLayout[@content-desc='Search']")
-    private WebElement resultSearch;
+    @FindBy(xpath = "//android.view.View[@content-desc=\"https://panacond.github.io start\"]")
+    private WebElement appStart;
 
-    @FindBy(id = "com.android.settings:id/button1")
-    private  WebElement openApp;
-
-    @FindBy(id = "com.android.quicksearchbox:id/search_src_text")
-    private WebElement inputFieldApp;
-
-    @FindBy(id = "com.android.quicksearchbox:id/search_go_btn")
-    private WebElement buttonSearch;
-
-    @FindBy(xpath = "//android.view.View[@content-desc='https://panacond.github.io start']/android.view.View[2]")
-    private WebElement buttonStartApp;
-
-    @FindBy(xpath = "//android.view.View[@content-desc='Расчет']/android.widget.TextView")
+    @FindBy(xpath = "//android.view.View[@content-desc=\"Расчет\"]")
     private WebElement sectionCalculations;
 
-    public StartAppPage clickGotoListApp(){
+    public StartAppPage clickApp(){
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         goToListApp.click();
         return this;
     }
 
-    public StartAppPage clickViewAll20App(){
-        viewAll20App.click();
+    public StartAppPage clickFieldInput(){
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        fieldInput.click();
         return this;
     }
 
-    public StartAppPage clickButtonSearchApp(){
-        buttonSearchApp.click();
+    public StartAppPage setUrlBar(String text ){
+        urlBar.sendKeys(text);
         return this;
     }
 
-    public StartAppPage inputFieldSearchApp(String nameApp){
-        fieldSearchApp.sendKeys(nameApp);
+    public StartAppPage clickFieldClick(){
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        fieldClick.click();
         return this;
     }
 
-    public StartAppPage clickResultSearch(){
-        resultSearch.click();
-        return this;
-    }
-
-    public StartAppPage clickOpenApp(){
-        openApp.click();
-        return this;
-    }
-
-    public StartAppPage setInputFieldApp(String search){
-        inputFieldApp.sendKeys(search);
-        return this;
-    }
-
-    public StartAppPage clickButtonSearch(){
-        buttonSearch.click();
-        return this;
-    }
-
-    public StartAppPage clickStartApp(){
-        buttonStartApp.click();
+    public StartAppPage clickAppStart(){
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        appStart.click();
         return this;
     }
 
     public StartAppPage clickSectionCalculations(){
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         sectionCalculations.click();
         return this;
     }

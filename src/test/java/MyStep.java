@@ -39,8 +39,9 @@ public class MyStep {
         startAppPage = new StartAppPage();
     }
 
-    @Given("^User input load '(.*)'$")
-    public MyStep userInputLoadLoad(int load) {
+    @And("^User input load '(.*)'$")
+    public MyStep userInputLoadLoad(int load) throws InterruptedException {
+//        Thread.sleep(1000);
         firstDataPage.setLoad(String.valueOf(load));
         return this;
     }
@@ -96,15 +97,42 @@ public class MyStep {
     @Given("open app")
     public void openApp() {
         startAppPage
-                .clickGotoListApp()
-                .clickViewAll20App()
-                .clickButtonSearchApp()
-                .inputFieldSearchApp("Search")
-                .clickResultSearch()
-                .clickOpenApp()
-                .setInputFieldApp("panacond.github")
-                .clickButtonSearch()
-                .clickStartApp()
+                .clickApp()
+                .clickFieldInput()
+                .setUrlBar("panacond.github")
+                .clickFieldClick()
+                .clickAppStart()
                 .clickSectionCalculations();
+    }
+
+    @Given("open app 1 step")
+    public void openAppStep1() {
+        startAppPage.clickApp();
+    }
+
+    @And("open app 2 step")
+    public void openAppStep2() throws InterruptedException {
+        Thread.sleep(1000);
+        startAppPage.clickFieldInput();
+    }
+
+    @And("open app 3 step")
+    public void openAppStep3() {
+        startAppPage.setUrlBar("panacond.github");
+    }
+
+    @And("open app 4 step")
+    public void openAppStep4() {
+        startAppPage.clickFieldClick();
+    }
+
+    @And("open app 5 step")
+    public void openAppStep5() {
+        startAppPage.clickAppStart();
+    }
+
+    @And("open app 6 step")
+    public void openAppStep6() {
+        startAppPage.clickSectionCalculations();
     }
 }

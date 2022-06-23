@@ -9,21 +9,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CapabilitiesFactory {
-    private static final PropertiesReader properties = new PropertiesReader();
-    private static final String APP_ACTIVITY_CAPABILITY = ".Settings";
 
     public static DesiredCapabilities getCapabilities(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, properties.getPlatformName());
-        capabilities.setCapability(MobileCapabilityType.UDID, properties.getUdId());
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, properties.getPackage());
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY, properties.getActivity());
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel2");
         return capabilities;
     }
 
     public static URL getAppiumServerURL(){
         try {
-            return new URL( properties.getUrlServer());
+            return new URL( "http://0.0.0.0:4723/wd/hub");
         } catch (MalformedURLException e){
             e.printStackTrace();
         }

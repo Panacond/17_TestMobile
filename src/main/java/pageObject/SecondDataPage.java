@@ -8,14 +8,14 @@ import java.util.concurrent.TimeUnit;
 
 public class SecondDataPage extends BasePageObject{
 
-    @FindBy(css = "#numberbox-h2")
+    @FindBy(id = "numberbox-h2")
     private WebElement sectionHeight;
 
-    @FindBy(css = "#numberbox-b2")
+    @FindBy(id = "numberbox-b2")
     private WebElement sectionWidth;
 
 //    @FindBy(css = "[id^=passage] > a")
-    @FindBy(xpath = "//android.view.View[@content-desc='Расчет']/android.widget.TextView")
+    @FindBy(xpath = "//android.view.View[@content-desc=\"Расчет\"]")
     private WebElement buttonCalculation;
 
     public SecondDataPage setSectionHeight(String height){

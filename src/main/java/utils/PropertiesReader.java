@@ -46,4 +46,8 @@ public class PropertiesReader {
     public String getActivity(){
         return property.getProperty("APP_ACTIVITY_CAPABILITY");
     }
+
+    public String getDeviceName(){
+        return property.getProperty("DEVICE_NAME_CAPABILITY");
+    }
 }

@@ -3,26 +3,28 @@ package pageObject;
 import driver.AndroidDriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.concurrent.TimeUnit;
 
 public class FirstDataPage extends BasePageObject {
 
-    @FindBy(css = "#numberbox-q1")
+//    @FindBy(id = "numberbox-q1")
+    @FindBy(xpath = "//android.widget.EditText[@content-desc=\"200\"]")
     private WebElement fieldLoad;
 
-    @FindBy(css = "#numberbox-b1")
+//    @FindBy(id = "numberbox-b1")
+    @FindBy(xpath = "//android.widget.EditText[@content-desc=\"1\"]")
     private WebElement fieldWidth;
 
-    @FindBy(css = "#numberbox-l1")
+//    @FindBy(id = "numberbox-l1")
+    @FindBy(xpath = "//android.widget.EditText[@content-desc=\"3\"]")
     private WebElement fieldLength;
 
 //    @FindBy(css = "#passage-start > a:nth-child(11)")
-    @FindBy(xpath = "//android.view.View[@content-desc='Деревянная балка']/android.widget.TextView")
+    @FindBy(xpath = "//android.view.View[@content-desc=\"Деревянная балка\"]")
     private WebElement buttonWoodBeam;
 
-    public FirstDataPage setLoad(String load){
-        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    public FirstDataPage setLoad(String load) throws InterruptedException {
+        AndroidDriverSingleton.getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
         fieldLoad.clear();
         fieldLoad.sendKeys(load);
         return this;

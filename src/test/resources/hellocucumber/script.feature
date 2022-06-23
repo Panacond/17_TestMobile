@@ -2,7 +2,8 @@ Feature: Test work web app
   As user select type initial data and get result
 
   Scenario Outline: Positive test
-    Given User input load '<load>'
+    Given open app
+    And User input load '<load>'
     And User input width'<width>'
     And User input length'<length>'
     And User click wood beam
@@ -16,7 +17,8 @@ Feature: Test work web app
       | 300  | 2     | 4      | 350            | 75            | 0.67   |
 
   Scenario Outline: Negative test
-    Given User input load '<load>'
+    Given open app
+    And User input load '<load>'
     And User input width'<width>'
     And User input length'<length>'
     And User click wood beam
@@ -35,3 +37,11 @@ Feature: Test work web app
 
   Scenario: Open WebApp
     Given open app
+
+  Scenario: Open WebApp on steps
+    Given open app 1 step
+    And open app 2 step
+    And open app 3 step
+    And open app 4 step
+    And open app 5 step
+    And open app 6 step
